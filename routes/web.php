@@ -15,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 //
 //  Front Route
 //
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('book.index');
-});
+})->name('home');
 
 //
 //  Admin Route Group
@@ -30,4 +29,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function (){
         return view('admin.index');
     })->name('main');
+
+    Route::resource('books', BookController::class);
 });
