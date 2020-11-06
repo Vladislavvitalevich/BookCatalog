@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -34,7 +35,7 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Каталог</a>
+                        <a class="nav-link" href="{{route('catalog.getAllBooks')}}">Каталог</a>
                     </li>
                 </ul>
 
@@ -78,5 +79,6 @@
         @yield('content')
     </main>
 </div>
+@yield('scripts')
 </body>
 </html>

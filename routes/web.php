@@ -18,9 +18,18 @@ Auth::routes();
 //
 //  Front Route
 //
+
+Route::get('/', function () {
+    return redirect()->route('home');
+});
+
 Route::get('/home', function () {
     return view('book.index');
 })->name('home');
+
+Route::get('/catalog', 'CatalogController@getAllBooks')->name('catalog.getAllBooks');
+Route::get('/book/{id}', 'CatalogController@getSingleBook')->name('catalog.getSingleBook');
+Route::post('/order', 'OrderController@buyBook')->name('order.buyBook');
 
 //
 //  Admin Route Group
