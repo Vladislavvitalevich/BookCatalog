@@ -40,4 +40,7 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     })->name('main');
 
     Route::resource('books', BookController::class);
+    Route::resource('orders', OrderController::class)->only([
+        'index', 'show'
+    ]);;
 });
