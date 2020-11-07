@@ -16,4 +16,12 @@ class Book extends Model
     {
         return $this->belongsToMany(Order::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

@@ -30,11 +30,12 @@ Route::get('/home', function () {
 Route::get('/catalog', 'CatalogController@getAllBooks')->name('catalog.getAllBooks');
 Route::get('/book/{id}', 'CatalogController@getSingleBook')->name('catalog.getSingleBook');
 Route::post('/order', 'OrderController@buyBook')->name('order.buyBook');
+Route::post('/comment/set', 'CommentController@saveComment')->name('comment.saveComment');
 
 //
 //  Admin Route Group
 //
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'isAdmin'])->namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', function (){
         return view('admin.index');
     })->name('main');
@@ -42,5 +43,8 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('books', BookController::class);
     Route::resource('orders', OrderController::class)->only([
         'index', 'show'
-    ]);;
+    ]);
+    Route::resource('comments', CommentController::class)->only([
+        'index', 'show', 'destroy'
+    ]);
 });

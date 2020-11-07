@@ -26,23 +26,30 @@
 
     <div class="container-fluid">
         <div class="row justify-content-start">
-            <div class="card w-50">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><code>№ Заказа</code> - {{$order->id}}</li>
-                    <li class="list-group-item"><code>Имя</code> - {{$order->name}}</li>
-                    <li class="list-group-item"><code>Телефон</code> - {{$order->phone}}</li>
-                    <li class="list-group-item"><code>Email</code> - {{$order->email}}</li>
-                </ul>
-
-                @foreach($order->books as $book)
-                <img src="{{asset('storage/'.$book->image)}}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><b>{{$book->name}}</b></h5>
-                    <p class="card-text">{{$book->description}}</p>
-                    <p class="card-text"><small class="text-muted">{{$book->author}}</small></p>
+            <div class="col-md-6">
+                <div class="card ">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><code>№ Заказа</code> - {{$order->id}}</li>
+                        <li class="list-group-item"><code>Имя</code> - {{$order->name}}</li>
+                        <li class="list-group-item"><code>Телефон</code> - {{$order->phone}}</li>
+                        <li class="list-group-item"><code>Email</code> - {{$order->email}}</li>
+                    </ul>
                 </div>
-                @endforeach
-
+            </div>
+            <div class="col-md-6">
+                <div class="row justify-content-center">
+                    @foreach($order->books as $book)
+                    <div class="col-4">
+                        <div class="card">
+                                <img src="{{asset('storage/'.$book->image)}}" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><b>{{$book->name}}</b></h5>
+                                    <p class="card-text"><small class="text-muted">{{$book->author}}</small></p>
+                                </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>

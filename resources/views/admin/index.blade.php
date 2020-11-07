@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <h1>Главная страницыа админ панели</h1>
+                <h1>Главная страница админ панели</h1>
             </div>
         </div>
     </div>

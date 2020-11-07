@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Book;
+use App\Http\Requests\SaveOrderBook;
 use App\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
-    public function buyBook(Request $request)
+    public function buyBook(SaveOrderBook $request)
     {
+        $validated = $request->validated();
+
         $id = $request->id;
-        $book = Book::whereId($request->id)->first();
+        $book = Book::whereId($id)->first();
         $book->status = true;
         $book->save();
 
