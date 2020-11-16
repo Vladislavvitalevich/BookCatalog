@@ -19,7 +19,8 @@
 - php artisan migrate
 - php artisan db:seed --class=UserSeeder
 - php artisan serve
+- php artisan storage:link
+- php artisan key:generate
 
 go to: https://127.0.0.1:8000
-
 admin url: https://127.0.0.1:8000/admin
